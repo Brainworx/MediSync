@@ -2,7 +2,7 @@
 require_once 'MedipimApiV3Client.php';
 $client = new MedipimApiV3Client(123,'IGuh829DevvUZYVwNnTDTvFPkLdm08EhGcUG72Y20peYhStZ2Ugj7AnsRTXZgf8g');
 $r = $client->get("/v3/public-categories/all");
-$catfile = fopen("../test/categoriesv3.xml","wr");
+$catfile = fopen("../test/categoriesv3.xml","w");
 $catList = $r['results'];//json_decode($r);
 $meta = $r['meta'];
 $newCatData="";
@@ -33,5 +33,5 @@ foreach($catList as $categorie){
 	unset($newCatData);
 }
 echo "Parent cats = ".$parent_cats;
-	
+fclose($catfile);
 //var_dump($r);
