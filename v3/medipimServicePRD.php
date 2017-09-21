@@ -76,7 +76,7 @@ foreach($prodList as $product){
 	$base_image = "";
 	$base_image_label  ="";
 	foreach ($product['photos'] as $photo){
-		if($photo['type']=="public"){
+		if(in_array("public",$photo['targetGroups'])){
 			$base_image = $photo['formats']['medium'];
 			$base_image_label = $photo['type'];
 		}
